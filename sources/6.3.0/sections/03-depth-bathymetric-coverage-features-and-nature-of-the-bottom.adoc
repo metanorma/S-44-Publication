@@ -4,7 +4,7 @@
 [[sec-introduction-3]]
 === Introduction
 
-The navigation of surface vessels requires accurate knowledge of depth and <<bm-feature,features>>.  Where underkeel clearance is potentially an issue, <<bm-bathymetric-coverage,bathymetric coverage>> must be at least 100%, <<bm-feature-detection,feature detection>> must be appropriate, and depth uncertainties must be tightly controlled and understood.
+The navigation of surface vessels requires accurate knowledge of depth and <<bm-feature,features>>.  Where <<glossary-underkeel-clearance,underkeel clearance>> is potentially an issue, <<bm-bathymetric-coverage,bathymetric coverage>> must be at least 100%, <<bm-feature-detection,feature detection>> must be appropriate, and depth uncertainties must be tightly controlled and understood.
 
 For customisation or enhancement of safety of navigation survey orders or other applications, survey criteria may be specified by selecting required criteria values from the <<sec-matrix-description,Matrix>> (See <<sec-matrix-description,section 7.5>> and <<front-annex-amatrix-guidance,Annex A>>).
 
@@ -14,7 +14,7 @@ For customisation or enhancement of safety of navigation survey orders or other 
 [[sec-depth-measurement]]
 ==== Depth Measurement
 
-Depths are to be understood as <<bm-reduced-depths,reduced depths>> within a well-defined vertical reference frame.  The depth of a feature is expressed as the minimum depth of that feature.
+Depths are to be understood as <<bm-reduced-depths,reduced depths>> within a well-defined vertical reference frame.  The depth of a <<bm-feature,feature>> is expressed as the minimum depth of that <<bm-feature,feature>>.
 
 In waters with very high turbidity, e.g. estuaries, this minimum depth may be determined on the basis of sediment concentrations in the water.
 
@@ -34,18 +34,18 @@ The parameters “a” and “b”, together with the depth “d”, have to be 
 
 Where
 
- *a* represents that portion of the <<bm-uncertainty,uncertainty>> that does not vary with the depth
+* *a* represents that portion of the <<bm-uncertainty,uncertainty>> that does not vary with the depth
 
- *b* is a coefficient which represents that portion of the <<bm-uncertainty,uncertainty>> that varies with the depth
+* *b* is a coefficient which represents that portion of the <<bm-uncertainty,uncertainty>> that varies with the depth
 
- *d* is the depth
+* *d* is the depth
 
 <<sec-table-1-minimum-bathymetry-standards-for-safety-of-navigatio,Table 1>> specifies the parameters “a” and “b” to compute the maximum allowable <<bm-total-vertical-uncertainty,TVU>> of <<bm-reduced-depths,reduced depths>> for each survey order.  The <<bm-total-vertical-uncertainty,total vertical uncertainties>> of depth measurements calculated with a 95 % <<bm-confident-level,confidence level>> must not exceed this value.
 
 [[sec-feature-detection]]
 === Feature Detection
 
-Minimum standards for <<bm-feature-detection,feature detection>> are specified in <<sec-table-1-minimum-bathymetry-standards-for-safety-of-navigatio,Table 1>>.  A cubic feature is used as a basic shape reference for the system’s feature detection ability and implies a symmetrical 3-D shape of six equal square sides.
+Minimum standards for <<bm-feature-detection,feature detection>> are specified in <<sec-table-1-minimum-bathymetry-standards-for-safety-of-navigatio,Table 1>>.  A cubic <<bm-feature,feature>> is used as a basic shape reference for the system’s feature detection ability and implies a symmetrical 3-D shape of six equal square sides.
 
 In assessing a survey system's <<bm-feature-detection,feature detection>> ability, the entire survey system, including equipment, methodologies, procedures, and personnel, must be assessed.  It is the responsibility of the hydrographic office or authority that is gathering the data to assess the capability of any proposed survey systems to detect <<bm-significant-feature,significant features>>.
 
@@ -89,11 +89,11 @@ Greater than 100% <<bm-bathymetric-coverage,bathymetric coverage>>, including 20
 
 Hydrographic offices and authorities must consider the expected local traffic (e.g. draught of vessels) as well as general configuration of depths when assessing hazards to navigation.
 
-Sufficient data must be acquired over features that are potential hazards to navigation (e.g. wreck or other obstructions) to ensure the least depth and position are adequately determined by appropriate methods, while meeting the minimum requirements of the appropriate order in <<sec-table-1-minimum-bathymetry-standards-for-safety-of-navigatio,Table 1>>.
+Sufficient data must be acquired over <<bm-feature,features>> that are potential hazards to navigation (e.g. wreck or other obstructions) to ensure the least depth and position are adequately determined by appropriate methods, while meeting the minimum requirements of the appropriate order in <<sec-table-1-minimum-bathymetry-standards-for-safety-of-navigatio,Table 1>>.
 
-Given current ship specifications, features with least depths deeper than 40 metres would not likely constitute a hazard to surface navigation.  However, this statement should be constantly re-evaluated based on local circumstances and their potential changes.
+Given current ship specifications, <<bm-feature,features>> with least depths deeper than 40 metres would not likely constitute a hazard to surface navigation.  However, this statement should be constantly re-evaluated based on local circumstances and their potential changes.
 
-The hydrographic office or authority, responsible for survey quality, may define a depth limit beyond which a detailed bottom investigation, and thus an examination of features, is not required.
+The hydrographic office or authority, responsible for survey quality, may define a depth limit beyond which a detailed bottom investigation, and thus an examination of <<bm-feature,features>>, is not required.
 
 [[sec-charted-object-confirmation-disproval]]
 === Charted Object Confirmation / Disproval

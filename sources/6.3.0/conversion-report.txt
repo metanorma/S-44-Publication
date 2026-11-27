@@ -1,11 +1,11 @@
 @conversion warnings:
-unresolved internal reference to bookmark Quality_Control
-unresolved internal reference to bookmark Random_Error
-unresolved internal reference to bookmark feature
-unresolved internal reference to bookmark Under_Keel_Clearance
-unresolved internal reference to bookmark Note_1
-unresolved internal reference to bookmark Note_1_Bis
 
 notes:
 cover page image extracted to images/cover.jpeg
-1 inline OMML equation(s) skipped - plurimath cannot parse this document's OMML; transcribe as stem: formulas in the editorial pass
+annexes A-D promoted to [appendix] sections
+orphaned link 'Random_Error' rendered as plain text: "random error"
+orphaned link 'Note_1' rendered as plain text: "Note 1"
+orphaned link 'Note_1_Bis' rendered as plain text: "Note 1"
+1 OMML formula(s) converted to stem blocks via plurimath
+1 OMML fragment(s) had no corresponding paragraph object and were not converted
+0 inline SDT content block(s) skipped

@@ -29,6 +29,14 @@ require "fileutils"
 require "optparse"
 require "uri"
 
+# table_tennis is pinned first: plurimath's unitsdb chain requires
+# ~> 0.0.7 while the lutaml/leptris stack activates 1.0.0 - activation
+# order decides which wins. omml >= 0.2.12 accepts bare <m:oMath> roots
+# (inline Word equations); 0.2.11 and older reject them.
+gem "table_tennis", "~> 0.0.7"
+gem "omml", ">= 0.2.12"
+require "plurimath"
+
 gem "uniword", ">= 1.7"
 require "uniword"
 require "lutaml/model"
@@ -69,6 +77,39 @@ module S44DocxToMn
       "pict" => :pictures, "noBreakHyphen" => :no_break_hyphen, "sym" => :sym,
     }.freeze
 
+    # Orphaned internal hyperlinks in the source docx: their bookmark
+    # targets no longer exist in this revision of the document. Links
+    # that still have a meaningful target are re-pointed below; dead
+    # targets render as plain text.
+    BOOKMARK_OVERRIDES = {
+      # "The information contained in annexes B, C, and D provide some
+      # guidance on quality control..." -> Annex B, Guidelines for
+      # Quality Management
+      "Quality_Control" => "annex-guidelines-quality-management",
+    }.freeze
+
+    GLOSSARY_TERM_TARGETS = {
+      "feature" => /\AFeature:/,
+      "Under_Keel_Clearance" => /\AUnderkeel Clearance:/i,
+    }.freeze
+
+    DROP_LINKS = %w[Note_1 Note_1_Bis Random_Error].freeze
+
+    ANNEX_SEQUENCE = [
+      { file: "ab-quality-management.adoc",
+        anchor: "annex-guidelines-quality-management",
+        title: "Guidelines for Quality Management" },
+      { file: "ac-quality-control.adoc",
+        anchor: "annex-guidance-priori",
+        title: "Guidance for A Priori and A Posteriori Quality Control" },
+      { file: "ad-gridded-bathymetry.adoc",
+        anchor: "annex-gridded-bathymetry",
+        title: "Gridded Bathymetry Considerations" },
+    ].freeze
+
+    ANNEX_A = { file: "aa-matrix-guidance.adoc", anchor: "annex-matrix-guidance",
+                title: "Matrix Guidance" }.freeze
+
     DOCUMENT_ATTRIBUTES = {
       title: "IHO Standards for Hydrographic Surveys",
       series: "S",
@@ -102,6 +143,8 @@ module S44DocxToMn
       @tbl_seq = 0
       @math_skipped = 0
       @pending_anchors = []
+      @math_queue = build_math_queue
+      @formula_count = 0
     end
 
     def run
@@ -116,6 +159,39 @@ module S44DocxToMn
 
     def warn_once(msg)
       @warnings << msg unless @warnings.include?(msg)
+    end
+
+    # Raw <m:oMath>/<m:oMathPara> fragments from word/document.xml, in
+    # document order. The uniword object model cannot hand back the
+    # original OMML XML (its serializer re-roots namespaces), and
+    # plurimath needs correct namespace declarations to parse, so the
+    # fragments are wrapped with the standard namespaces before parsing.
+    def build_math_queue
+      entry = @zip.find_entry("word/document.xml")
+      return [] unless entry
+
+      xml = entry.get_input_stream.read
+      xml = xml.force_encoding("UTF-8")
+      xml.scan(%r{<m:oMathPara>.*?</m:oMathPara>|<m:oMath>.*?</m:oMath>}m)
+        .map do |frag|
+          frag.sub(/\A<(m:oMathPara|m:oMath)([^>]*)>/) do
+            %(<#{Regexp.last_match(1)} xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">)
+          end
+        end
+    end
+
+    # Convert the next queued OMML fragment to AsciiMath. Traversal order
+    # (element_order) matches document order, so popping is aligned with
+    # the paragraphs the converter renders.
+    def next_formula_asciimath
+      raw = @math_queue.shift
+      return nil unless raw
+
+      @formula_count += 1
+      Plurimath::Math.parse(raw, :omml).to_asciimath.strip
+    rescue StandardError => e
+      warn_once("OMML formula #{(@formula_count || 1)} could not be converted (#{e.class}); transcribe manually")
+      nil
     end
 
     def note_once(msg)
@@ -207,6 +283,12 @@ module S44DocxToMn
       num = numpr(para)
 
       blk = Block.new(type: :body, para: para, style: style, anchors: [])
+
+      if Array(para.o_maths).any? || Array(para.o_math_paras).any?
+        # Display equations: the docx carries them as their own
+        # otherwise-empty paragraph.
+        blk.type = text.empty? ? :formula : :body
+      end
 
       case style.downcase
       when "prechapters"
@@ -494,6 +576,28 @@ module S44DocxToMn
           @anchor_for_bookmark[name] = para_anchor[key]
         end
       end
+      mint_glossary_term_anchors(para_anchor)
+    end
+
+    # Source hyperlinks whose targets were dropped from this revision of
+    # the document are re-pointed at the glossary term they defined.
+    def mint_glossary_term_anchors(para_anchor)
+      GLOSSARY_TERM_TARGETS.each do |name, term_re|
+        next if @anchor_for_bookmark.key?(name)
+
+        blk = @blocks.find do |b|
+          b.type == :body && b.para&.text&.match?(term_re)
+        end
+        next unless blk
+
+        term_label = blk.para.text[/\A[^:]+/].to_s
+        id = "glossary-#{slugify(term_label)}"
+        unless para_anchor.key?(blk.para.object_id)
+          para_anchor[blk.para.object_id] = id
+          (blk.anchors ||= []) << id
+        end
+        @anchor_for_bookmark[name] = para_anchor[blk.para.object_id]
+      end
     end
 
     # -------------------------------------------------- ordered traversal
@@ -552,7 +656,13 @@ module S44DocxToMn
         when "fldSimple"
           segs << simple_field(item)
         when "oMath", "oMathPara", "sdt"
-          @math_skipped += 1
+          if name == "sdt"
+            @math_skipped += 1
+          else
+            # Inline math within a text paragraph.
+            math = next_formula_asciimath
+            segs << Segment.new(raw: "stem:[#{math}]") if math
+          end
         end
       end
       join_segments(segs, cell: cell)
@@ -588,8 +698,12 @@ module S44DocxToMn
     end
 
     def xref(bookmark_name, text)
-      target = @anchor_for_bookmark[bookmark_name]
+      target = @anchor_for_bookmark[bookmark_name] || BOOKMARK_OVERRIDES[bookmark_name]
       unless target
+        if DROP_LINKS.include?(bookmark_name)
+          note_once("orphaned link '#{bookmark_name}' rendered as plain text: #{text[0, 40].inspect}")
+          return text
+        end
         warn_once("unresolved internal reference to bookmark #{bookmark_name}")
         return text
       end
@@ -779,8 +893,10 @@ module S44DocxToMn
         send("render_#{b.type}", b, out)
         prev_type = b.type
       end
-      warn_once("dangling inline anchors with no following block") unless @pending_anchors.empty?
-      @pending_anchors.clear
+      # Leftover anchors carry into the next rendered section: section
+      # boundaries fall between an anchor holder and its target block
+      # (e.g. the annex bookmark holders before each annex note).
+      @pending_anchors
     end
 
     def render_skip(_b, _out); end
@@ -805,7 +921,40 @@ module S44DocxToMn
       end
 
       b.anchors.each { |id| out << "[[#{id}]]" }
+      # Inline OMML objects consumed by render_inline (element_order
+      # yields them for some paragraphs): hoist stem:[...] segments out
+      # of the text into a display stem block above it.
+      if text.include?("stem:[")
+        stems = []
+        text = text.gsub(/(?:\s*)stem:\[[^\]]*\]/) do
+          stems << Regexp.last_match(0).strip.sub(/\Astem:\[/, "").sub(/\]\z/, "")
+          ""
+        end
+        unless stems.empty?
+          out << "[stem]"
+          out << "++++"
+          out << stems.join("\n")
+          out << "++++"
+          out << ""
+        end
+      end
+      # "Where" definition lines (" *a* represents ..."): metanorma binds
+      # a star list after a stem block as the formula's definitions.
+      text = "* #{text.lstrip}" if text.match?(/\A\s+\*/)
       out << hardbreaks(text)
+    end
+
+    def render_formula(b, out)
+      b.anchors.each { |id| out << "[[#{id}]]" }
+      math = next_formula_asciimath
+      if math.nil?
+        warn_once("display formula dropped (conversion failed)")
+        return
+      end
+      out << "[stem]"
+      out << "++++"
+      out << math
+      out << "++++"
     end
 
     def render_note(b, out)
@@ -976,9 +1125,20 @@ module S44DocxToMn
 
     # ---------------------------------------------------------- output
 
+    # Annex promotion: the source docx flattens Annexes A-D as Heading2
+    # content under the "Tables and Specification Matrix" chapter.
+    # Boundaries, verified against the published edition structure
+    # (metanorma/mn-samples-iho s44 transcription):
+    # - Annex A ("Matrix Guidance") opens at the Heading2 "Introduction"
+    #   that follows the "MATRIX" heading;
+    # - Annexes B, C, D each open at their "This annex is not an
+    #   integral part" note, which precedes their B.n/C.n/D.n clauses.
     def split_sections
       sections = []
       chapter_no = 0
+      annex_a_pending = false
+      annex_a_started = false
+      annex_seq = ANNEX_SEQUENCE.dup
       @blocks.each do |b|
         next if b.type == :skip
 
@@ -989,12 +1149,29 @@ module S44DocxToMn
           next
         end
 
-        if b.type == :heading && b.level == 2
-          chapter_no += 1
+        if b.type == :heading
           title = b.para.text.strip
-          sections << { file: format("%02d-%s.adoc", chapter_no, slugify(title)),
-                        blocks: [] }
+          if b.level == 2
+            chapter_no += 1
+            sections << { file: format("%02d-%s.adoc", chapter_no, slugify(title)),
+                          blocks: [] }
+          elsif title.casecmp?("MATRIX")
+            annex_a_pending = true
+          elsif annex_a_pending && title.casecmp?("Introduction")
+            annex_a_started = true
+            annex_a_pending = false
+            sections << { file: ANNEX_A[:file], annex_anchor: ANNEX_A[:anchor], annex_title: ANNEX_A[:title], blocks: [] }
+            sections.last[:blocks] << b
+            next
+          end
         end
+
+        if b.type == :note && !annex_seq.empty? &&
+           b.para.text.match?(/This annex is .*not an integral part/i)
+          annex = annex_seq.shift
+          sections << { file: annex[:file], annex_anchor: annex[:anchor], annex_title: annex[:title], blocks: [] }
+        end
+
         if sections.empty?
           # Content before the first heading: keep with front matter.
           front = sections.detect { |s| s[:file] == "00-front-matter.adoc" }
@@ -1006,6 +1183,7 @@ module S44DocxToMn
         end
         sections.last[:blocks] << b if sections.last && b.type != :skip
       end
+      note_once("annexes A-D promoted to [appendix] sections") if annex_a_started
       sections
     end
 
@@ -1017,6 +1195,15 @@ module S44DocxToMn
       sections.each do |sec|
         out = []
         render_blocks(sec[:blocks], out)
+        if sec[:annex_title]
+          # Synthesized annex heading: the docx flattens the annex title
+          # away, leaving only its numbered sub-clauses (B.1, C.2, ...).
+          pre = ["[[#{sec[:annex_anchor]}]]",
+                 "[appendix]",
+                 "== #{sec[:annex_title]}",
+                 ""]
+          out = pre + out
+        end
         content = out.join("\n").gsub(/\n{3,}/, "\n\n").strip
         next includes << sec[:file] if content.empty?
 
@@ -1028,9 +1215,9 @@ module S44DocxToMn
       File.write(File.join(@out_dir, "conversion-report.txt"),
                  (["@conversion warnings:"] + @warnings +
                   ["", "notes:"] + @notes +
-                  ["#{@math_skipped} inline OMML equation(s) skipped - plurimath" \
-                   " cannot parse this document's OMML; transcribe as stem:" \
-                   " formulas in the editorial pass"]).join("\n") + "\n")
+                  ["#{@formula_count} OMML formula(s) converted to stem blocks via plurimath",
+                   "#{@math_queue.size} OMML fragment(s) had no corresponding paragraph object and were not converted",
+                   "#{@math_skipped} inline SDT content block(s) skipped"]).join("\n") + "\n")
     end
 
     def write_images

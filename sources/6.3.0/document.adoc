@@ -33,3 +33,11 @@ include::sections/06-metadata.adoc[]
 
 include::sections/07-tables-and-specification-matrix.adoc[]
 
+include::sections/aa-matrix-guidance.adoc[]
+
+include::sections/ab-quality-management.adoc[]
+
+include::sections/ac-quality-control.adoc[]
+
+include::sections/ad-gridded-bathymetry.adoc[]
+

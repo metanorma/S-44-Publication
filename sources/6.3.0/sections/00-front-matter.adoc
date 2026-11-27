@@ -46,7 +46,7 @@ S-44 vocabulary has been revised to better align with references typically used 
 
 While the hydrographic surveyor may have some flexibility on how to conduct survey operations, it remains the decision of the responsible authority on whether the standard has been achieved.  Furthermore, the surveyor is an essential component of the survey process and must possess sufficient knowledge and experience to be able to operate the system to the required standard.  Measuring this can be difficult, although surveying qualifications and professional accreditation schemes may be a basis in making this assessment.  Available education in this field is (amongst others) Category A and/or B educational programme formed by International Board on Standards of Competence for Hydrographic Surveyors and Nautical Cartographers (IBSC), International Hydrographic Organization (IHO), International Federation of Surveyors (FIG), International Cartographic Association (ICA).
 
-The information contained in annexes <<front-annex-bguidelines-for-quality-management,B>>, <<bm-annex-c-guidance,C>>, and <<bm-annex-d-gridded,D>> provide some guidance on quality control, data processing, and considerations for gridded bathymetry.  These Annexes are not an integral part of the S-44 Standards and will be removed when the information therein is fully incorporated into IHO Publication C-13, _Manual on Hydrography_.
+The information contained in annexes <<front-annex-bguidelines-for-quality-management,B>>, <<bm-annex-c-guidance,C>>, and <<bm-annex-d-gridded,D>> provide some guidance on <<annex-guidelines-quality-management,quality control>>, data processing, and considerations for gridded bathymetry.  These Annexes are not an integral part of the S-44 Standards and will be removed when the information therein is fully incorporated into IHO Publication C-13, _Manual on Hydrography_.
 
 [NOTE]
 ====
@@ -186,7 +186,7 @@ Terms that are only used within the Annexes are not included in this Glossary; t
 *Feature*: Any object, whether natural or manmade, which is distinct from the surrounding area.
 
 [[bm-feature-detection]]
-*Feature detection*: Ability of a system to detect features of a defined size.
+*Feature detection*: Ability of a system to detect <<bm-feature,features>> of a defined size.
 
 [[bm-feature-search]]
 *Feature search:* Extent to which an area has been surveyed using a systematic method of detecting features.
@@ -221,6 +221,7 @@ Terms that are only used within the Annexes are not included in this Glossary; t
 [[bm-uncertainty]]
 *Uncertainty:* Estimate characterising the range of values within which the true value of a measurement is expected to lie as defined within a particular <<bm-confident-level,confidence level>>.  It is expressed as a positive value.
 
+[[glossary-underkeel-clearance]]
 *Underkeel Clearance:* Distance between the lowest point of the ship's hull and the seabed, riverbed, etc.
 
 [.preface]

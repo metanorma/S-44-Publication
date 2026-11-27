@@ -1,0 +1,242 @@
+[[annex-gridded-bathymetry]]
+[appendix]
+== Gridded Bathymetry Considerations
+
+[[bm-annex-d-gridded]]
+[NOTE]
+====
+*Note*: This annex is *not* an integral part of the S-44 Standards and will be removed when the information therein is fully incorporated into IHO Publication C-13, _Manual on Hydrography_.
+====
+
+*REFERENCES:* Content from the following references was used in the composition of this Annex.
+
+IHO S-100, The Universal Hydrographic Data Model – Edition 3.0.0
+
+IHO S-102, Bathymetric Surface Product Specification – Edition 1.0.0
+
+IHO B-11, IHO-IOC GEBCO Cook Book – September 2018
+
+ISO 19107:2003 Geographic Information - Spatial Schema
+
+ISO 19115:2003 Geographic Information - Metadata
+
+ISO 19123:2005 Geographic Information - Schema for Coverage Geometry and Functions
+
+Open Navigation Surface Working Group (ONSWG), Requirements Document – Version 1.0
+
+Open Navigation Surface Working Group, Format Specification Document - Description of Bathymetric Attributed Grid Object (BAG) - Version 1.6.3
+
+Open Navigation Surface Working Group, A Variable Resolution Grid Extension for BAG Files – Version 1.2
+
+Digital Elevation Model Technologies and Applications: The DEM User’s Manual – 3^rd^ Edition
+
+GEBCO – Frequently Asked Questions:
+
+[[sec-d-1introduction]]
+=== D.1 Introduction
+
+As data sample densities from hydrographic sensors have increased, methods of sea floor representation have shifted from vector-based products such as selected soundings and contours, to gridded <<bm-bathymetric-model,bathymetric models>>.  The result of an individual hydrographic survey is now commonly stored as a digital grid or series of grids of differing resolutions.  These grids often include node values for both depth and <<bm-uncertainty,uncertainty>> and may also include accompanying information regarding contributing sample standard deviation, sample density, shoal sample values within the vicinity of the grid node, and even information to allow conversion between tidal datum and reference ellipsoid.  For many hydrographic offices, production workflows now focus on these gridded <<bm-bathymetric-model,bathymetric models>> as the data source instead of the full resolution sounding files.  Exploitation of the gridded bathymetric data can reduce production timelines as they provide an appropriate level of information in a lighter-weight, digital package.
+
+Gridded <<bm-bathymetric-model,bathymetric models>> are also used for small-scale applications such as regional bottom characterisation.  In many instances these grids are a combination of observed sample data, survey gridded data, estimated data, and interpolated data.  This Annex will not address considerations for these types of grids compilations, as substantial information on this topic is maintained by the Joint IHO-IOC Guiding Committee for the General Bathymetric Chart of the Oceans (GEBCO).
+
+[[sec-d-2definitions]]
+=== D.2 Definitions
+
+*Area Representation*: Representation of gridded data where the entire cell is assumed to be the same value, and changes only occur at the borders of cells.  (The DEM User’s Manual)
+
+[[bm-bathymetric-model]]
+*Bathymetric model:* Digital representation of the topography of the bottom by coordinates and depths.
+
+*Grid*: A network composed of two or more sets of curves in which the members of each set intersect the members of the other sets in a systematic way.  (ISO 19123)
+
+*Grid Cell*: An area defined within the interstices between the grid lines.  (ISO 19123)
+
+*Grid Line Registration:* Registration method where grid nodes are centred on the intersection of the grid lines.  (GEBCO)
+
+*Grid Node*: A data point, with an exact geographic location referenced by grid definition and registration.  The value contained within the grid describes selected information at this location.  (ONSWG)
+
+*Holiday:* An unintentional unsurveyed area within a given hydrographic survey where the spacing between sounding lines or surveys exceeds the maximum allowable limits. (IHO Dictionary S-32)
+
+*Pixel Centred Registration*: Registration method where grid nodes are centred in the grid cells.  (GEBCO)
+
+*Surface Representation*: Representation of gridded data where the grid node represents the surface value at the centroid of each cell.  The area between cell centres is assumed to be a value between that of adjacent cells. (The DEM User’s Manual)
+
+[[bm-uncertainty-type]]
+*Uncertainty Type:*  The type of calculation that has been used to calculate the uncertainty associated with a grid node.
+
+[[sec-d-3grid-considerations]]
+=== D.3 Grid Considerations
+
+[[sec-d-3-1grid-resolution]]
+==== D.3.1 Grid Resolution
+
+Gridded <<bm-bathymetric-model,bathymetric models>> are commonly generated using a fixed resolution per a pre-defined depth range.  A compromise is often made when selecting a fixed resolution over a given depth range, where ultimately the grid resolution cannot be chosen at the same time for the shallowest and the deepest depths.
+
+In addition to the fixed resolutions per depth range, recent efforts in hydrographic data processing have allowed for the generation of variable resolution gridded <<bm-bathymetric-model,bathymetric models>>.  These models can be generated using fixed resolution per a pre-defined depth range (as with individual grids) or automated methods based on depth and achieved data density.
+
+When the survey requirement calls for detection of <<bm-feature,features>> of set dimensions and the resultant gridded <<bm-bathymetric-model,bathymetric model>> is to represent the results of the survey, accurate <<bm-feature,feature>> representation within the grid will require a grid cell size no greater than the size of the <<bm-feature,feature>> that the gridded <<bm-bathymetric-model,bathymetric model>> is required to depict, although it is recommended that a cell size of half the <<bm-feature,feature>> is used.
+
+The grid resolution should also be chosen to consider the achieved horizontal <<bm-uncertainty,uncertainty>> of the input samples and the method for which this <<bm-uncertainty,uncertainty>> is used in the chosen gridding method or algorithm.
+
+Grid resolution should ultimately be determined based on the intended use of the grid and therefore a survey may require grids of different resolutions to satisfy multiple purposes.
+
+[[sec-d-3-2sample-density]]
+==== D.3.2 Sample Density
+
+It is the responsibility of the hydrographic office or authority, to determine an acceptable data density requirement which allows for an accurate depiction of significant bottom <<bm-feature,features>> and reliable estimate of depth within the local vicinity of the grid nodes without allowing opportunity for data _holidays_ to be masked by grid resolution.  This determination requires surveyors to verify sensor <<bm-feature-detection,feature detection>>performance prior to its use, including selection and employment of appropriate collection parameters.
+
+If statistical gridding methods are to be employed, acceptable data densities should be specified with a minimum threshold of accepted samples per area (e.g. greater than or equal to five (5) samples per node).  Data density requirements should also describe the percentage of nodes within the grid that are required to achieve this density, e.g. at least 95% of all nodes within the grid shall be populated with the minimum required density.
+
+[[sec-d-3-3grid-coverage]]
+==== D.3.3 Grid Coverage
+
+It is the responsibility of the hydrographic office or authority, to define a data gap or data holiday.  The definition should describe the area on the bottom, by number of continuous nodes with no depth present.
+
+When gridded <<bm-bathymetric-model,bathymetric models>> are generated using a fixed resolution per a pre-defined depth range, overlap between adjacent grids should exist in order to ensure that no gaps in coverage between neighbouring grids are generated.
+
+[[sec-d-3-4hydrographer-overrides-to-grid-nodes]]
+==== D.3.4 Hydrographer Overrides to Grid Nodes
+
+When statistical gridding methods are employed, it is possible for the gridding algorithm to omit a significant shoal depth on a <<bm-feature,feature>> of interest.  Tools exist inside many hydrographic data processing packages to override node values and manually force the model to honour a shoal depth.  It is the responsibility of the hydrographic office or authority, to define the thresholds for when overrides are appropriate.  Some thresholds will be <<bm-uncertainty,uncertainty>>-based, e.g. only override the statistically significant nodal depth value when the difference between the node value and nearest shoal sample exceeds the allowable <<bm-total-vertical-uncertainty,total vertical uncertainty>> (<<bm-total-vertical-uncertainty,TVU>>) at the nodal depth.  Other thresholds may be defined by scale of the product that the data set was collected to support.  Comments on <<bm-feature,feature>> selection and nodal override methods should accompany the gridded <<bm-bathymetric-model,bathymetric model>> to allow the end users to determine if it is appropriate for the intended use.
+
+[[sec-d-4gridding-methods]]
+==== *D.4 Gridding Methods*
+
+Several possible gridding methods for both dense and sparse data sets exist.  The hydrographic office or authority is responsible for determining the appropriate method for the intended purpose of the resultant gridded data set.  This determination should consider the implementation of the gridding method or algorithm in the selected software package.  This determination should also consider the method of grid node representation and portrayal within the selected software.
+
+The following list provides some of the methods commonly used when gridding bathymetric data sets:
+
+* The *Shoalest Depth* method examines depth estimates within a specific area of influence and assigns the shoalest value to the nodal position.  The resulting surface represents the shallowest depths across a given area.  The shoalest depth values are often used for safety of navigation purposes.
+* The *Deepest Depth* method examines depth estimates within a specific area of influence and assigns the deepest value to the nodal position.  The resulting surface represents the deepest depths across a given area.  The use of a deep depth surface is often used during post processing to identify outliers in the data set.
+* The *Basic Mean* method computes a mean depth for each grid node where all soundings within the cell have the same weight.
+* The *Statistical Median* method computes a depth for the node by ordering contributing samples sequentially and selecting the median value.
+* The *Basic Weighted Mean* method computes an average depth for each grid node (whereby the inverse to the distance from the sounding location to the nodal position is used as weighting schema).  Contributing depth estimates within a given area of influence are weighted and averaged to compute the final nodal value.
+* The *Total Propagated Uncertainty (*<<bm-total-propagated-uncertainty,*TPU*>>*) Weighted Mean* method makes use of the elevation and associated total propagated <<bm-uncertainty,uncertainty>> for each contributing depth estimate to compute a weighted average depth for each nodal position.
+* The *Combined Uncertainty and Bathymetric Estimator (CUBE)* algorithm makes use of the elevation and associated total propagated <<bm-uncertainty,uncertainty>> for each contributing sounding to compute one or many hypotheses for an area of interest.  The resulting hypotheses are used to estimate statistical representative depths at each nodal position.
+* The *Nearest Neighbour* method identifies the depth value of the nearest sounding in distance from the nodal point within an area of interest.  This method does not consider values from other neighbouring points.
+* The *Natural Neighbour* interpolation method identifies and weights (as a function of the inverse of the surface of the smallest polygon – Voronoi tessellation – around the sounding value) a subset of input samples within the area of interest to interpolate the final nodal value.
+* The *Polynomial Tendency* gridding method attempts to fit a polynomial trend, or best fit surface to a set of input data points.  This method can project trends into areas with little to no data, but does not work well when there is no discernible trend within the data set.
+* The *Spline* gridding method estimates nodal depths using a mathematical function to minimise overall surface curvature.  The final “smoothed” surface passes exactly through the contributing input depth estimates.  This Spline algorithm is considered a sparse data gridding method.
+* The *Kriging* gridding method is a geostatistical interpolation method that generates an estimated surface from a scattered set of points with a known depth.
+
+[[sec-d-5grid-uncertainty]]
+=== D.5 Grid Uncertainty
+
+The <<bm-uncertainty,uncertainty>> associated with the elevation value contained within gridded <<bm-bathymetric-model,bathymetric models>> can be described using a variety of methods, which may include:
+
+*Raw Standard Deviation* is the standard deviation of samples that contributed to the node.
+
+*Standard Deviation Estimator* is the standard deviation of samples captured by a hypothesis algorithm (e.g. CUBE’s standard output of <<bm-uncertainty,uncertainty>>).
+
+*Product Uncertainty* is a blend of Standard Deviation Estimator <<bm-uncertainty,uncertainty>> and other measures which may include Raw Standard Deviation, and the average vertical <<bm-uncertainty,uncertainty>> from the subset of samples used to generate the hypothesis that represents the node.
+
+*Historical Standard Deviation* is an estimated standard deviation based on historical/archive data.
+
+Other <<bm-uncertainty-type,uncertainty types>> may be specified.  Methods for <<bm-uncertainty,uncertainty>> estimation should be documented within the accompanying grid <<bm-metadata,metadata>>.
+
+The <<bm-uncertainty-type,uncertainty types>> listed above describe the vertical <<bm-uncertainty,uncertainty>> of the node depth.  The resultant grid may exhibit a higher than expected <<bm-uncertainty,uncertainty>> value if the bathymetric profile is not represented at an appropriate grid resolution, e.g. a node <<bm-uncertainty,uncertainty>> value may be higher than anticipated along sharp sloping bathymetry.
+
+If required, obtaining a horizontal <<bm-uncertainty,uncertainty>> for a grid node could be accomplished by calculating a basic or distance weighted mean of the horizontal <<bm-uncertainty,uncertainty>> values from the samples that contributed to the grid node.
+
+[[sec-d-6applicability]]
+=== D.6 Applicability
+
+Gridded <<bm-bathymetric-model,bathymetric models>> are a common product of a hydrographic survey; however, the utility of the model representation begins well before a survey data set is finalised as this data can also be used to verify survey requirements during hydrographic collection and certify quality of a data set during data set validation efforts.
+
+[[sec-d-6-1survey-data-collection]]
+==== D.6.1 Survey Data Collection
+
+Gridded <<bm-bathymetric-model,bathymetric models>> can provide valuable information regarding underway bottom sample density and identification of significant bottom <<bm-feature,features>>.  These models can be leveraged to assess where and to what degree bathymetric coverage has been achieved, objects are identified for feature search, and where holidays exist.  Monitoring of these items during survey operations is necessary for the qualification of field data completeness prior to departing the survey area.
+
+[[sec-d-6-2survey-data-validation]]
+==== D.6.2 Survey Data Validation
+
+Gridded <<bm-bathymetric-model,bathymetric models>> can serve as a comparison tool to examine depth data consistency within a survey and the presence of random and systematic data set <<bm-error,errors>>.  These models can also serve as a comparison tool between neighbouring surveys and between different collection sensors.  Comparisons between high resolution gridded data and legacy point data can also be accomplished to provide statistics on differences and aid in the prioritisation scheme for future product updates.  Comparison of gridded depth and associated nodal <<bm-uncertainty,uncertainty>> is another common method used in determining whether a survey data set complies with required <<bm-uncertainty,uncertainty>> thresholds as well.
+
+[[sec-d-6-3survey-data-deliverable]]
+==== D.6.3 Survey Data Deliverable
+
+As mentioned throughout this annex, gridded <<bm-bathymetric-model,bathymetric models>> in the presence of survey logs, reports and other <<bm-metadata,metadata>> are sufficient to serve as the authoritative result and deliverable of the survey.  Gridded models also serve as the direct input for the generation of products supporting safety of navigation and other protection of the marine environment objectives.
+
+[[sec-d-7metadata]]
+=== D.7 Metadata
+
+To ensure gridded <<bm-bathymetric-model,bathymetric models>> are fit for purposes that include and extend beyond safety of navigation, an appropriate level of <<bm-metadata,metadata>> describing the data set is required.  IHO S-102, the Bathymetric Surface Product Specification, provides <<bm-metadata,Metadata>> elements derived from S-100 and from ISO 19115 and ISO 19115-2.  Elements described within S-102 include mandatory, optional and conditional items.  Following this specification, conclusive <<bm-metadata,metadata>> for gridded <<bm-bathymetric-model,bathymetric models>> will include information describing the data set, depth <<bm-correction,correction>> type, uncertainty components, grid reference and coordinate system information, as well as temporal descriptions, grid construction methods, and persons responsible for product generation.
+
+The Chair of the Hydrographic Surveys Project Team, Christophe VRIGNAUD (France, Shom), supported by the Vice-Chair Nickolás DE ANDRADE ROSCHER (Brazil, DHN) and the IHO Secretariat, would like to thank the following participants (in alphabetic order) for their efforts and contributions:
+
+Sejin Ahn, Republic of Korea (KHRA)
+
+Anderson Barbosa da Cruz Peçanha, Brazil (DHN)
+
+Erik Biscotti, Italy (IIM)
+
+Vidar Bøe, Norway (NHS)
+
+James Chapman, UK (UKHO)
+
+Andrew Coulls, Australia (AHO)
+
+Rodrigo de Campos Carvalho, Brazil (DHN)
+
+Cristina Monteiro, Portugal (IH)
+
+David Dodd, Expert Contributor (IIC Technologies)
+
+Marco Filippone, Expert Contributor (Fugro)
+
+Maxim Frits Van Norden, Expert Contributor (University of Southern Mississippi)
+
+Fabien Germond, Expert Contributor (iXblue)
+
+Megan Greenaway, USA (NOAA)
+
+Florian Imperadori, France (Shom)
+
+Iji Kim, Republic of Korea (KHOA)
+
+Jean Laporte, Expert Contributor (ARGANS)
+
+Kwanchang Lim, Republic of Korea (KHOA)
+
+John Loog, Netherlands (NLHO)
+
+Jean-Guy Nistad, Germany (BSH)
+
+JongYeon Park, Republic of Korea (KHOA)
+
+Hugh Parker, Expert Contributor (Fugro)
+
+David Parker, UK (UKHO)
+
+Stephen Parsons, Canada (CHS)
+
+Alistair Philip, UK (UKHO)
+
+Ronan Pronost, France (Shom)
+
+Misty Savell, USA (NGA)
+
+Thierry Schmitt, France (Shom)
+
+Iain Slade, Expert Contributor (IFHS)
+
+Diego Tartarini, Italy (IIM)
+
+Matthew Thompson, USA (NAVOCEANO)
+
+David Vincentelli, Expert Contributor (iXblue and IFHS)
+
+James Walton, Expert Contributor (AML)
+
+Neil Weston, USA (NOAA)
+
+Enrico Zanone, Italy (IIM)
+
+Anders Åkerberg, Sweden (SMA)
+
+Hans Öiås, Sweden (SMA)
+
+Special thanks to Richard Powell (USA, NOAA) for the cover image.
+
+The revisions from edition 6.2.0 to 6.3.0 were made by the IHO Hydrographic Surveys Working Group (HSWG) S-44 Drafting Team. HSWG is led by David PARKER, UK (UKHO), Megan GREENAWAY, USA (NOAA), Commander Carlos R Videira MARQUES, Portugal (Instituto Hidrográfico) and Lilei LV China (MSA).
