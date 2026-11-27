@@ -1,0 +1,240 @@
+[[tbl-1]]
+[cols="a"]
+|===
+|© Copyright International Hydrographic Organization 2026
+|This work is copyright.  Apart from any use permitted in accordance with the link:http://www.wipo.int/treaties/en/ip/berne/trtdocs_wo001.html[Berne Convention for the Protection of Literary and Artistic Works] (1886), and except in the circumstances described below, no part may be translated, reproduced by any process, adapted, communicated or commercially exploited without prior written permission from the International Hydrographic Organization (IHO).  Copyright in some of the material in this publication may be owned by another party and permission for the translation and/or reproduction of that material must be obtained from the owner.
+|This document or partial material from this document may be translated, reproduced or distributed for general information, on no more than a cost recovery basis.  Copies may not be sold or distributed for profit or gain without prior written agreement of the IHO and any other copyright holders.
+|In the event that this document or partial material from this document is reproduced, translated or distributed under the terms described above, the following statements are to be included:
+|_“Material from IHO publication [reference to extract: Title, Edition] is reproduced with the permission of the Secretariat of the International Hydrographic Organization (IHO) (Permission No ……./……) acting for the International Hydrographic Organization (IHO), which does not accept responsibility for the correctness of the material as reproduced: in case of doubt, the IHO’s authentic text shall prevail.  The incorporation of material sourced from IHO shall not be construed as constituting an endorsement by IHO of this product.”_
+a|_“This [document/publication] is a translation of IHO [document/publication] [name].  The IHO has not checked this translation and therefore takes no responsibility for its accuracy.  In case of doubt the source version of [name] in [language] should be consulted.”_
+
+The IHO Logo or other identifiers shall not be used in any derived product without prior written permission from the IHO.
+|===
+
+[NOTE]
+====
+*Note:* Annexes <<front-annex-bguidelines-for-quality-management,B>>, <<bm-annex-c-guidance,C>> and <<bm-annex-d-gridded,D>> will be removed from this document when the information contained in them is fully included in IHO Publication C-13, _Manual on Hydrography_
+====
+
+[.preface]
+[[front-preface]]
+== PREFACE
+
+This Publication (S-44) defines the standard applicable to hydrographic surveys and takes its place amongst the other International Hydrographic Organization (IHO) publications, designed to improve the safety of navigation, knowledge, and protection of the marine environment.
+
+Formal discussions on establishing standards for hydrographic surveys began at the 7^th^ International Hydrographic Conference (IHC) in 1957.  The 1^st^ edition of S-44 entitled “Accuracy Standards Recommended for Hydrographic Surveys” was published in January 1968.  Since then, the IHO has endeavoured to update this standard regularly to keep pace with the existing technologies and methods.  Four successive editions have thus been released since the 1968 original issue: the 2^nd^ edition was published in 1982, the 3^rd^ in 1987, the 4^th^ in 1998, and finally, the 5^th^ edition in 2008.  The point of these being to maintain continuity of the original idea throughout successive changes.
+
+By Circular Letter (CL) 68/2016 of 20 December 2016, the IHO established a Hydrographic Surveys Project Team (HSPT) tasked with updating the standard and in its CL 26/2017 further defined the composition of the team.  The HSPT tasks consisted of three goals: firstly, evaluate the 5^th^ edition of the standard; secondly, prepare an S-44 6^th^ edition; and finally, if necessary, set up a permanent Working Group tasked with addressing all hydrographic surveys concerns.  The HSPT team was comprised of representatives from the IHO Member States, observers from international organisations (IFHS and FIG), other expert contributors, and the Secretariat of the IHO.
+
+Hydrographic technologies and requirements are continually evolving, as is the expanding community of users.  While hydrographers logically follow these changes, the S-44 standard needs to continue to evolve in order to remain the international reference for hydrographic surveys. 
+
+In the creation of this edition, the IHO Hydrographic Surveys Project Team liaised with the hydrographic community and received input from IHO stakeholders (including industry).  This input was crucial to express the needs of the community and drive the updates of this edition, while remaining committed to the IHO mandate.
+
+By Circular Letter (CL) 36/2020 of 09 November 2020, the IHO established the Hydrographic Surveys Working Group (HSWG). One of the main objectives of the group is to review and maintain this standard at regular intervals. As such, HSWG determined this standard should be evaluated for revision on a two-year cycle.
+
+[.preface]
+[[front-introduction]]
+== INTRODUCTION
+
+This publication aims to provide a set of standards for hydrographic surveys and a tool for classification of bathymetric and supporting oceanographic datasets, primarily used to compile navigational charts essential for the safety of navigation, knowledge and the protection of the marine environment.  It specifies the *minimum**standards* to be achieved for applicable data based on the intended use.  Where and when necessary, hydrographic offices or organisations are encouraged to define more stringent or specific requirements as national or regional realisations of the standard.  This publication does not contain procedures for setting up equipment, conducting the survey, or for processing the resultant data.  IHO Publication C-13, _Manual on Hydrography,_ should be consulted for information on those topics (downloadable from the IHO homepage: link:https://iho.int/[www.iho.int]).
+
+In this edition, a new, more stringent Exclusive Order has been introduced.  The use of Exclusive Order should be limited to areas with exceptional conditions and specific requirements.  The pre-existing orders for safety of navigation surveys have kept the same names, but their interpretation has changed from the previous edition due to the introduction of the <<bm-bathymetric-coverage,bathymetric coverage>> concept.  Special Order now explicitly requires full <<bm-bathymetric-coverage,bathymetric coverage>>.  Furthermore, the orders have been divided into requirements above and below the vertical reference frame.
+
+This edition encourages the use of S-44 for purposes beyond the safety of navigation.  It introduces the concept of a <<sec-matrix-description,Matrix>> of parameters and data types to define realisations of survey standards and specifications.  This <<sec-matrix-description,Matrix>> alone is not a standard.  It should be considered as a reference tool for specifying, as appropriate, the requirements for dedicated surveys, and for the broader classification of surveys.  It is, by design, expandable and can evolve in future S-44 versions.  <<front-annex-amatrix-guidance,Annex A>> provides guidance on how the Matrix can be used for specification and classification of surveys.
+
+S-44 vocabulary has been revised to better align with references typically used in metrology (e.g. Guide to the expression of uncertainty in measurement).  Horizontal positioning standards for aids to navigation have been revised and standards for their vertical positioning have been added.  Emphasis has been placed upon the main components of hydrographic surveys while being technology independent.
+
+While the hydrographic surveyor may have some flexibility on how to conduct survey operations, it remains the decision of the responsible authority on whether the standard has been achieved.  Furthermore, the surveyor is an essential component of the survey process and must possess sufficient knowledge and experience to be able to operate the system to the required standard.  Measuring this can be difficult, although surveying qualifications and professional accreditation schemes may be a basis in making this assessment.  Available education in this field is (amongst others) Category A and/or B educational programme formed by International Board on Standards of Competence for Hydrographic Surveyors and Nautical Cartographers (IBSC), International Hydrographic Organization (IHO), International Federation of Surveyors (FIG), International Cartographic Association (ICA).
+
+The information contained in annexes <<front-annex-bguidelines-for-quality-management,B>>, <<bm-annex-c-guidance,C>>, and <<bm-annex-d-gridded,D>> provide some guidance on quality control, data processing, and considerations for gridded bathymetry.  These Annexes are not an integral part of the S-44 Standards and will be removed when the information therein is fully incorporated into IHO Publication C-13, _Manual on Hydrography_.
+
+[NOTE]
+====
+*Note:* The publication of this new edition of the standard does not invalidate surveys, or the safety of navigation products based on surveys conducted in accordance with previous editions.
+====
+
+[.preface]
+[[front-document-history]]
+== DOCUMENT HISTORY
+
+Changes to this Standard are coordinated by the  link:https://iho.int/en/hswg[IHO Hydrographic Surveys Working Group]. New editions will be made available via the IHO website.
+
+   
+
+[[tbl-2]]
+[cols="a,a,a"]
+|===
+h|*Version Number*
+h|*Date*
+h|*Update Description*
+|6.0.0
+|September 2020
+a|Introduced:  
+
+* Exclusive Order
+
+* Matrix
+
+* Bathymetric Coverage  
+
+* Feature Search  
+
+* Encourages use beyond safety of navigation  
+
+Updated:  
+
+* Special Order to require full bathymetric coverage  
+
+* Horizontal and vertical position for aids to navigation  
+
+* Orders have been divided into requirements above and below the vertical reference frame  
+
+* Focus on being technology independent  
+
+Aligned:  
+
+* Vocabulary revised to align with terms in metrology  
+|6.1.0
+|September 2022
+a|Clarified:  
+
+* Reference frame/system  
+
+* Uncertainty component  
+
+* Range line/leading lines  
+
+Updated:  
+
+* Moved range/leading lines and sector lights from 5.6 to section 5.2  
+|6.2.0
+|October 2024
+a|Clarified:  
+
+* A priori uncertainty and a posteriori uncertainty  
+
+* Total horizontal uncertainty  
+
+Updated:  
+
+* 3.8 Nature of the Bottom and associated parameters in the Matrix  
+|6.3.0
+|October 2026 (_Estimate_)
+a|Clarified:  
+
+* Bathymetric coverage < 100%  
+
+* Bathymetric coverage > 100%
+
+* Inputs for determination of TVU and THU for achieved survey results
+
+Updated:  
+
+* Tides chapter (changed water flow to surface current)  
+
+Aligned:  
+
+* Terms with metrology (see glossary)  
+
+* Geodetic terms (datum, geodetic reference frame, reference system)  
+
+* S-44 metadata with S-100 metadata  
+
+Formatting:
+
+* Formatted chapter headers and sub headers to correct Table of Contents
+|===
+
+[.preface]
+[[front-glossary]]
+== GLOSSARY
+
+[NOTE]
+====
+*Note:* The terms defined below are those most relevant to this publication.  A much larger selection of terms is defined in IHO Special Publication S-32 (Hydrographic Dictionary) and should be consulted if the required term is not listed below.  If a term listed below has a different definition in S-32, the definition given below should be used in relation to the standards presented herein.
+====
+
+For the purpose of this Publication the words:
+
+*must*: indicates a mandatory requirement;
+
+*should*: indicates a recommended requirement;
+
+*may*: indicates an optional requirement;
+
+Terms that are only used within the Annexes are not included in this Glossary; these are defined within the Annexes.
+
+[[bm-a-priori-uncertainty]]
+*A priori uncertainty:* Uncertainty based on estimations prior to and throughout the survey.
+
+[[bm-a-posteriori-uncertainty]]
+*A posteriori uncertainty:* Uncertainty based on survey results.
+
+[[bm-bathymetric-coverage]]
+*Bathymetric coverage:* Extent to which an area has been surveyed using a systematic method of measuring or deriving the depth, based on the combination of the survey pattern and the theoretical area of detection of the survey instrumentation.
+
+[[bm-confident-level]]
+*Confidence level:* Probability that the true value of a measurement will lie within the specified <<bm-uncertainty,uncertainty>> from the measured value.
+
+[[bm-correction]]
+*Correction:* Compensation applied to a measured or computed value to adjust for an assessed systematic error.
+
+[[bm-error]]
+*Error:* Difference between a measured or computed value and  its true value.  Errors can be categorised as <<bm-systematic-error,systematic>>or random errors (see S-32).
+
+[[bm-feature]]
+*Feature*: Any object, whether natural or manmade, which is distinct from the surrounding area.
+
+[[bm-feature-detection]]
+*Feature detection*: Ability of a system to detect features of a defined size.
+
+[[bm-feature-search]]
+*Feature search:* Extent to which an area has been surveyed using a systematic method of detecting features.
+
+[[bm-metadata]]
+*Metadata:* Data describing a data set and its usage.
+
+[[bm-reduced-depths]]
+*Reduced depth:* Observed depth including all <<bm-correction,corrections>> related to the survey, post processing, and reduction to the appropriate vertical reference frame.
+
+[[bm-significant-feature]]
+*Significant Feature:*<<bm-feature,Feature>> that poses a potential danger to navigation or object one would expect to see depicted on a nautical chart or product.
+
+[[bm-systematic-error]]
+*Standard Deviation:*  A measure of the spread or dispersion of a sample of errors around the sample mean error. It quantifies precision rather than accuracy.
+
+*Surface current:* The horizontal motion of water at a navigationally significant depth, or the vertical average over a depth, represented as a velocity vector (that is, speed and direction). Depths may extend from the sea surface down to 25 metres. 
+
+*Surface current direction:* The direction toward which the surface current flows. Units are arc-degrees. _Note: Measured clockwise from true north._
+
+*Surface current speed:* The speed (rate of change of position over time) (in knots) of a surface current.
+
+[[bm-total-horizontal-uncertainty]]
+*Total horizontal uncertainty (THU):* Component of <<bm-total-propagated-uncertainty,total propagated uncertainty>>(TPU) calculated in the horizontal dimension.  <<bm-total-horizontal-uncertainty,THU>> is a two-dimensional quantity with all contributing horizontal measurement uncertainties included.
+
+[[bm-total-propagated-uncertainty]]
+*Total propagated uncertainty (TPU):* Three dimensional <<bm-uncertainty,uncertainty>> obtained using all contributing <<bm-uncertainty,uncertainties>> associated with the input quantities in a measurement model.
+
+[[bm-total-vertical-uncertainty]]
+*Total vertical uncertainty (TVU):* Component of<<bm-total-propagated-uncertainty,total propagated uncertainty>> (TPU) calculated in the vertical dimension.  <<bm-total-vertical-uncertainty,TVU>> is a one-dimensional quantity with all contributing vertical measurement uncertainties included.
+
+[[bm-uncertainty]]
+*Uncertainty:* Estimate characterising the range of values within which the true value of a measurement is expected to lie as defined within a particular <<bm-confident-level,confidence level>>.  It is expressed as a positive value.
+
+*Underkeel Clearance:* Distance between the lowest point of the ship's hull and the seabed, riverbed, etc.
+
+[.preface]
+[[front-annex-amatrix-guidance]]
+== ANNEX A MATRIX GUIDANCE
+
+[.preface]
+[[front-annex-bguidelines-for-quality-management]]
+== ANNEX B GUIDELINES FOR QUALITY MANAGEMENT
+
+[.preface]
+[[front-annex-cguidance-for-a-priori-and-a-posteriori-quality-contro]]
+== ANNEX C GUIDANCE FOR A PRIORI AND A POSTERIORI QUALITY CONTROL
+
+[.preface]
+[[front-annex-dgridded-bathymetry-considerations]]
+== ANNEX D GRIDDED BATHYMETRY CONSIDERATIONS

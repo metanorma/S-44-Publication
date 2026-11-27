@@ -1,0 +1,136 @@
+[[sec-depth-bathymetric-coverage-features-and-nature-of-the-bottom]]
+== DEPTH, BATHYMETRIC COVERAGE, FEATURES, AND NATURE OF THE BOTTOM
+
+[[sec-introduction-3]]
+=== Introduction
+
+The navigation of surface vessels requires accurate knowledge of depth and <<bm-feature,features>>.  Where underkeel clearance is potentially an issue, <<bm-bathymetric-coverage,bathymetric coverage>> must be at least 100%, <<bm-feature-detection,feature detection>> must be appropriate, and depth uncertainties must be tightly controlled and understood.
+
+For customisation or enhancement of safety of navigation survey orders or other applications, survey criteria may be specified by selecting required criteria values from the <<sec-matrix-description,Matrix>> (See <<sec-matrix-description,section 7.5>> and <<front-annex-amatrix-guidance,Annex A>>).
+
+[[sec-depth]]
+=== Depth
+
+[[sec-depth-measurement]]
+==== Depth Measurement
+
+Depths are to be understood as <<bm-reduced-depths,reduced depths>> within a well-defined vertical reference frame.  The depth of a feature is expressed as the minimum depth of that feature.
+
+In waters with very high turbidity, e.g. estuaries, this minimum depth may be determined on the basis of sediment concentrations in the water.
+
+Under exceptional circumstances, for safety of navigation purposes, the use of an alternate high precision method that the hydrographic office or authority deems able to confirm the safe depth in an area, or over a feature / wreck, can be used to certify a safe depth.  In this case, the uncertainty of the vertical measurement will define the survey order to be quoted.
+
+[[sec-drying-heights]]
+==== Drying Heights
+
+In areas with larger tidal ranges where the drying zone is sometimes navigable during high tide, elevations within the drying zone also need to be thoroughly surveyed.  Depending on the situation and available equipment, the drying heights may either be surveyed bathymetrically or topographically.  However, regardless of the survey method, maximum uncertainties for navigable areas must not exceed those specified for the submerged area outside of the drying zone.
+
+[[sec-maximum-allowable-vertical-uncertainty]]
+==== Maximum Allowable Vertical Uncertainty
+
+Recognising that there are both depth-dependent and depth-independent <<bm-error,error>> sources that affect the measurements of depths, the formula below is used to compute the maximum allowable vertical measurement uncertainty.
+
+The parameters “a” and “b”, together with the depth “d”, have to be introduced into the formula below in order to calculate the maximum allowable TVU:
+
+Where
+
+ *a* represents that portion of the <<bm-uncertainty,uncertainty>> that does not vary with the depth
+
+ *b* is a coefficient which represents that portion of the <<bm-uncertainty,uncertainty>> that varies with the depth
+
+ *d* is the depth
+
+<<sec-table-1-minimum-bathymetry-standards-for-safety-of-navigatio,Table 1>> specifies the parameters “a” and “b” to compute the maximum allowable <<bm-total-vertical-uncertainty,TVU>> of <<bm-reduced-depths,reduced depths>> for each survey order.  The <<bm-total-vertical-uncertainty,total vertical uncertainties>> of depth measurements calculated with a 95 % <<bm-confident-level,confidence level>> must not exceed this value.
+
+[[sec-feature-detection]]
+=== Feature Detection
+
+Minimum standards for <<bm-feature-detection,feature detection>> are specified in <<sec-table-1-minimum-bathymetry-standards-for-safety-of-navigatio,Table 1>>.  A cubic feature is used as a basic shape reference for the system’s feature detection ability and implies a symmetrical 3-D shape of six equal square sides.
+
+In assessing a survey system's <<bm-feature-detection,feature detection>> ability, the entire survey system, including equipment, methodologies, procedures, and personnel, must be assessed.  It is the responsibility of the hydrographic office or authority that is gathering the data to assess the capability of any proposed survey systems to detect <<bm-significant-feature,significant features>>.
+
+Specified <<bm-feature-detection,feature detection>> abilities are not implicit determinations of what constitutes a hazard to navigation.  In some cases, <<bm-significant-feature,significant features>> smaller than the defined sizes specified in <<sec-table-1-minimum-bathymetry-standards-for-safety-of-navigatio,Table 1>> can be classified as hazards to navigation.  It may therefore be deemed necessary by the hydrographic office or authority to detect smaller <<bm-significant-feature,significant features>> in order to minimise the risk of undetected hazards to navigation.  However, no single survey system can guarantee detection of all features.  If there is a concern that hazards to navigation may exist within an area that may not be detected by the survey system, consideration should be given to use an alternative survey system.
+
+[[sec-feature-search]]
+=== Feature Search
+
+Minimum standards for Feature Search are specified in <<sec-table-1-minimum-bathymetry-standards-for-safety-of-navigatio,Table 1>>.
+
+For Order 1a, a 100% <<bm-feature-search,feature search>> may be achieved with a survey system that does not measure depth.  Under those circumstances, least depth measurements from an independent bathymetric system will be required for any detected <<bm-significant-feature,significant feature>>.  Whenever possible, it is recommended to conduct a 100% <<bm-feature-search,feature search>> in conjunction with 100% <<bm-bathymetric-coverage,bathymetric coverage>>.
+
+A <<bm-feature-search,feature search>> greater than or equal to 100% must be planned and conducted with the intent of detecting all features of the sizes specified in this standard.  Where more than 100% <<bm-feature-search,feature search>> is required, including 200% for Exclusive Order, it may be accomplished by adequately overlapping collection or by acquiring more than one independent dataset within a survey with distinct characteristics (e.g. differing observation angles).
+
+[[sec-bathymetric-coverage]]
+=== Bathymetric Coverage
+
+The concept of <<bm-bathymetric-coverage,bathymetric coverage>> was introduced in this edition of S-44, in order to make the standard technology independent.  Achieving <<bm-bathymetric-coverage,bathymetric coverage>> requires use of a sensor that measures or derives depths.  <<sec-table-1-minimum-bathymetry-standards-for-safety-of-navigatio,Table 1>> specifies the minimum <<bm-bathymetric-coverage,bathymetric coverage>> to be achieved by each survey order.
+
+[[sec-100-bathymetric-coverage]]
+==== 100% Bathymetric Coverage
+
+A 100% <<bm-bathymetric-coverage,bathymetric coverage>> should be interpreted as “full” <<bm-bathymetric-coverage,bathymetric coverage>>.  100% <<bm-bathymetric-coverage,bathymetric coverage>> does not guarantee continuous depth measurements, since the depth measurements are discrete and based on the inherent physical and survey instrumentation limitations.
+
+[[sec-less-than-100-bathymetric-coverage]]
+==== Less than 100% Bathymetric Coverage
+
+<<bm-bathymetric-coverage,Bathymetric coverage>> of less than 100% must follow a systematic survey pattern to maximise uniform distribution of depth data across the survey area and must not be lower than 5%.  Additionally, the nature of the bottom (e.g. roughness, type, slope) and the navigation practices in the survey area must be taken into account early and often to determine whether the survey pattern should be adapted to meet the requirements for safety of navigation in the area, while still fulfilling the minimum requirements according to <<sec-table-1-minimum-bathymetry-standards-for-safety-of-navigatio,Table 1>>.  To ensure surveys are performed systematically where <<bm-bathymetric-coverage,bathymetric coverage>> is specified at less than 100%, the horizontal distance between registered positions of depths should be no greater than 3 times water depth or 25 metres, whichever is greater.
+
+For Order 1a, <<bm-bathymetric-coverage,bathymetric coverage>> less than 100% is appropriate as long as the least depths over all <<bm-significant-feature,significant features>> are obtained and the bathymetry provides an adequate depiction of the nature of the bottom topography.  
+
+For Order 2 and Order 1b, minimum bathymetric coverage requirement is 5%, assuming consecutive soundings in the direction of the survey.
+
+[[sec-greater-than-100-bathymetric-coverage]]
+==== Greater than 100% Bathymetric Coverage
+
+Greater than 100% <<bm-bathymetric-coverage,bathymetric coverage>>, including 200% for Exclusive Order, may be accomplished by adequately overlapping collection or by acquiring more than one independent dataset within a survey with distinct characteristics (e.g. differing observation angles). This approach enhances data validation, reliability and helps ensure coverage in areas affected by shadows behind features or due to slopes.
+
+[[sec-hazards-to-navigation]]
+=== Hazards to Navigation
+
+Hydrographic offices and authorities must consider the expected local traffic (e.g. draught of vessels) as well as general configuration of depths when assessing hazards to navigation.
+
+Sufficient data must be acquired over features that are potential hazards to navigation (e.g. wreck or other obstructions) to ensure the least depth and position are adequately determined by appropriate methods, while meeting the minimum requirements of the appropriate order in <<sec-table-1-minimum-bathymetry-standards-for-safety-of-navigatio,Table 1>>.
+
+Given current ship specifications, features with least depths deeper than 40 metres would not likely constitute a hazard to surface navigation.  However, this statement should be constantly re-evaluated based on local circumstances and their potential changes.
+
+The hydrographic office or authority, responsible for survey quality, may define a depth limit beyond which a detailed bottom investigation, and thus an examination of features, is not required.
+
+[[sec-charted-object-confirmation-disproval]]
+=== Charted Object Confirmation / Disproval
+
+For an object which has previously been recorded/presented in a chart, document, electronic publication, or database, it is recommended to confirm or disprove the existence of those charted objects such as rocks, wrecks, obstructions, aids to navigation, and doubtful data.  Findings should be addressed in the report of survey.
+
+Doubtful data includes, but is not limited to, data which are usually denoted on charts by PA (Position Approximate), PD (Position Doubtful), ED (Existence Doubtful), SD (Sounding Doubtful), or as “reported danger”. Charted objects should be confirmed or disproved relative to their charted position.
+
+No empirical formula for defining the search area can cover all situations.  For object confirmation or disproval it is recommended that the search radius should be at least 3 times the estimated position <<bm-uncertainty,uncertainty>> of the reported hazard.  If a charted object is not located or indicated within the search radius, the charted object can then be recommended as disproved.
+
+It is the responsibility of the hydrographic office or authority which is gathering the data to assess whether the charted object has been sufficiently disproved before removing it from the chart.
+
+[[sec-nature-of-the-bottom]]
+=== Nature of the Bottom
+
+Characterisation Methods
+
+The nature of the bottom should be determined in potential anchorage areas, other critical areas, and in areas where bottom conditions are suspected to have significant influence on required <<bm-feature-detection,feature detection>>.  Components of bottom characterisation techniques include: physical sampling (PHY), visual/optical analysis (VIS), laboratory analysis (LAB), and inference technique (INF) from sensors data (e.g. backscatter).
+
+Bottom samples (PHY, VIS) should be taken at a spacing appropriate for the intended product (e.g. chart), seabed geology, and as required for ground truthing (GT) any inference technique.  Ground truthing (PHY/VIS/LAB) of the inference technique does not require a regular sampling pattern, or distances.    If bottom sampling has been performed in specific areas, such as anchorages or other areas of interest within the surveyed area, the outermost limits of the sampling area should be recorded.
+
+For bottom characterisation with inference technique (INF), data will typically come from the systems used for the hydrographic survey (e.g. acoustic backscatter from multibeam sonar, side scan sonar imagery and optical backscatter from lidar) or from other sources (e.g. aerial photography, satellite imagery). Consideration must be given to protocols of sensor calibration and sensor settings (including those for water column data) during data acquisition to minimise sensor induced variations in the data, which may negatively impact the bottom characterisation. 
+
+There are currently no IHO safety of navigation standards for bottom characterisation methods.  However, there are acoustic and optical backscatter guidelines and the <<sec-matrix-description,Matrix>> may be used to task and classify any such work performed. What is appropriate for these parameters varies greatly based on the nature and configuration of the bottom as well as the intended use of the area.  The surveyor should exercise judgement in determining appropriate bottom characterisation methods and bottom sampling spacing to adequately characterise the area.
+
+[[sec-acoustic-backscatter]]
+==== Acoustic Backscatter
+
+The acoustic backscattering strength of the bottom is commonly recorded since this data can aid in characterising geographic areas with different acoustic responses which imply different seafloor nature at no additional survey cost. The backscattering strength is directly linked to bottom characteristics such as sediment composition (e.g. density, grain size, presence of shells), roughness (e.g. sand ripples, gravel beds, bedrock), benthic life (e.g. shell colonies, coral reef, seagrass meadows, buried organisms), or other geological components (e.g. fluid mud, shallow gas areas). The delineated seabed, characterised from the mosaic, can be used to inform and optimise the positions where seafloor samplings should be collected.
+
+For guidelines on the acquisition and use of acoustic backscatter see, “Backscatter measurements by seafloor-mapping sonars. Guidelines and Recommendations'' (link:https://doi.org/10.5281/zenodo.10089261[https://doi.org/10.5281/zenodo.10089261]). Note that these recommendations are for optimal recording of backscatter data and may not be conducive to optimal bathymetry. Trade-offs may be required depending on survey objectives.
+
+[[sec-3-8-2-optical-backscatter]]
+==== 3.8.2 Optical Backscatter
+
+For bottom characterisation inference using optical backscatter by passive sensors (Earth Observation imaging) or active sensors (Lidar), the crucial characteristics are spectral wavelength range of visible light (from blue to red), and the point density or spatial resolution. These enable the quantification of parameters that impact backscatter and facilitate the derivation of bathymetry or seabed characteristics. 
+
+Guidelines on Satellite Derived Bathymetry, link:https://iho.int/en/bathymetric-publications[B-13], offers guidance on backscatter analysis derived from satellites.
+
+There are limited standards for lidar intensity interpretation. The American Society for Photogrammetry and Remote Sensing (ASPRS) offers guidance on lidar data format, with various publications providing methods for correcting intensities affected by instrumental and environmental variations. Additionally, National Hydrographic Office standards, offer guidelines for optimal acquisition conditions and data formats. The interpretation and analysis of lidar intensity images requires careful consideration because they measure backscattering from an active laser source, not natural sunlight, and are affected by factors like angle of incidence and calibration variability.

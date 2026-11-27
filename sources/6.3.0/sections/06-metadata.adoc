@@ -1,0 +1,98 @@
+[[sec-metadata]]
+== METADATA
+
+[[sec-introduction-6]]
+=== Introduction
+
+<<bm-metadata,Metadata>> is fundamental to ensure that survey data is correctly understood and utilised as required for chart production or other purposes.  This Standard identifies the minimum <<bm-metadata,metadata>> that is to be provided with hydrographic surveys conducted for safety of navigation.  Where additional <<bm-metadata,metadata>> is available this should be included to enhance the value of the survey data for other uses.  Examples of <<bm-metadata,metadata>> are shown in paragraph 6.2. 
+
+[[sec-metadata-content]]
+=== Metadata Content
+
+<<bm-metadata,Metadata>> can be provided in any format such as in the Report of Survey or embedded within a specific <<bm-metadata,metadata>> file.  The chosen format should support discovery, clarity of understanding, and software compatibility.  Each hydrographic office or authority may adopt <<bm-metadata,metadata>> requirements beyond that specified here and should develop and document a list of additional <<bm-metadata,metadata>> used for their survey data.  The table below should be seen as a schema, and not a final data model.
+
+<<bm-metadata,Metadata>> should be comprehensive, but should include, as a minimum, information on:
+
+[[tbl-3]]
+[cols="a,a,a"]
+|===
+|   
+h|*Name*
+h|*Description*
+h|*Source*
+|Survey ID
+|Unique project/survey number  
+|
+|Survey Type/Purpose
+a|Safety of navigation, passage, reconnaissance
+
+link:https://iho.int/en/standards-and-specifications[See S-101 'Survey Type (SURTYP)']   
+|
+|Survey Undertaken By
+|Responsible party/source institution/company  
+|
+|Survey Authority
+|Commissioning organization/data owner  
+|
+|Survey Start Date
+a|Start of survey  
+
+See S-101 'survey date range.date start': 4 digits for the calendar year (YYYY) and, optionally, 2 digits for the month (MM) and 2 digits for the day (DD)  
+|
+|Survey End Date
+a|End of survey  
+
+See S-101 'survey date range.date end': 4 digits for the calendar year (YYYY) and, optionally, 2 digits for the month (MM) and 2 digits for the day (DD)  
+|
+|Classification
+a|Usage constraints and description of restrictions e.g. unclassified, restricted, confidential, secret, for official use only  
+
+link:https://iho.int/en/standards-and-specifications[See S-102 'Classification']   
+h|*Reference Frame*
+a|Vertical Reference
+
+Frame
+
+(Vertical Datum)  
+
+&  Separation Model  
+a|Including ties to a geodetic reference frame based on ITRS (e.g. WGS84) and epoch information, if a local reference frame or realisation is used  
+
+Separation model should be defined when used  
+|
+a|Horizontal Reference Frame    
+
+(Horizontal Datum)  
+|
+|*Equipment and Processing*   
+|Technique of Vertical Measurement  
+a|link:https://iho.int/en/standards-and-specifications[See S-101: Data Classification and Encoding Guide TECSOU]
+
+E.g. multibeam, lidar, satellite imagery  
+|
+|Grid Attributes  
+|Where a grid is a deliverable (i.e. resolution, method, available layers, uncertainty)  
+|*Survey Quality*   
+|Survey Order/Matrix Classification  
+|Order of survey or Matrix classification achieved  
+|*Uncertainty*   
+|Maximum Total Horizontal Uncertainty  
+|Horizontal uncertainty achieved (at 95% Confidence Level) (THU)  
+|
+|Maximum Total Vertical Uncertainty  
+|Vertical uncertainty achieved (at 95% Confidence Level) (TVU)  
+|*Quality of Bathymetric Data*   
+|Bathymetric Coverage  
+|Percent of survey area covered with a sensor that measures or derives depths  
+|
+|Data Density  
+|Description of average or range of density of source data e.g. number of accepted points per surface unit  
+|
+|Feature Detection (size)  
+|Minimum feature size (m) detectable by the survey system; aligned with  link:https://iho.int/en/standards-and-specifications[S-101 and S-102 'size of features detected']   
+|
+|Feature Search  
+|Percent of area surveyed using a systematic method of detecting features; aligned with  link:https://iho.int/en/standards-and-specifications[S-101 ‘features detected’, ‘least depth of detected features measured’, ‘significant features detected’]   
+|===
+
+<<bm-metadata,Metadata>> should be an integral part of the digital survey record and preferably conform to the table above.  If this is not feasible, similar information should be included in the documentation of a survey.

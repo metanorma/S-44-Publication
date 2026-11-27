@@ -1,0 +1,57 @@
+[[sec-surveys-above-the-vertical-reference]]
+== SURVEYS ABOVE THE VERTICAL REFERENCE
+
+[[sec-introduction-5]]
+=== Introduction
+
+Surveys above the vertical reference are necessary for safe and efficient navigation and mooring.  Topographic and geodetic measurements that are of specific importance for navigation are presented in the following sections.  Their corresponding allowable uncertainties (<<bm-total-horizontal-uncertainty,THU>> and <<bm-total-vertical-uncertainty,TVU>> as applicable) are defined in <<sec-table-2-other-minimum-standards-for-safety-of-navigation-sur,Table 2>>.
+
+Additional information such as drawings or photographs of these features should be captured where possible to support the measurement.
+
+For Chart and Land Survey Vertical Reference Frame Connection requirements see <<sec-chart-and-land-survey-vertical-reference-frame-connections,section 2.5>>.
+
+[[sec-fixed-aids-and-topographic-features-significant-to-navigatio]]
+=== Fixed Aids and Topographic Features Significant to Navigation
+
+Fixed aids to navigation include, but are not limited to: beacons, day marks, lights, and lighthouses.
+
+Topographic features significant to navigation are conspicuous features, landmarks, and objects which assist mooring, docking, and manoeuvring in confined spaces and / or provide some aid in navigation.
+
+Conspicuous <<bm-feature,features>> which provide some aid in navigation without being a dedicated aid to navigation may include, but are not limited to, conspicuous natural features, cultural features, and landmarks such as: chimneys, flare stacks, hill or mountain tops, masts, monuments, towers, refineries, religious buildings, silos, single buildings, tanks, tank farms, and windmills.  <<bm-feature,Features>> of this type may be both significant to navigation and less significant to navigation (<<sec-features-less-significant-to-navigation,section 5.5>>) depending on the feature’s individual characteristics and surroundings.
+
+Essential harbour, mooring, and docking features include, but are not limited to: groynes, moles, wharfs (quays), piers (jetties), mooring dolphins, piles, bollards, slipways, docks, lock gates, and breakwaters.
+
+One may consider drying features (including rocks) which are positioned by topographic means to be topographic features significant to navigation.  
+
+Allowable <<bm-total-horizontal-uncertainty,THU>> and <<bm-total-vertical-uncertainty,TVU>> for the positioning of these fixed aids and features significant to navigation are presented in <<sec-table-2-other-minimum-standards-for-safety-of-navigation-sur,Table 2>>.
+
+[[sec-floating-objects-and-aids-to-navigation]]
+=== Floating Objects and Aids to Navigation
+
+Floating objects and aids to navigation include, but are not limited to: buoys, articulated beacons, fish farms, and floating docks.
+
+For floating objects, the surveyed position <<bm-uncertainty,uncertainty>> should be significantly lower than the sway (object’s allowed movement).  Sway due to currents, wind, and water level must be taken into account when computing the mean position of these objects.
+
+Allowable <<bm-total-horizontal-uncertainty,THU>> for the positioning of these objects are presented in <<sec-table-2-other-minimum-standards-for-safety-of-navigation-sur,Table 2>>.  Allowable <<bm-total-vertical-uncertainty,TVU>> is not applicable to these measurements.
+
+[[sec-coastline]]
+=== Coastline
+
+IHO S-32, _IHO Hydrographic Dictionary_, generally defines coastline or shoreline as the line where shore and water meet.  IHO S-4, _Regulations of the IHO for International (INT) Charts and Chart Specification of the IHO_, describes it more specifically as high water mark, or the line of mean water level where there is no appreciable tide or change in water level.  The coastline may also be defined as the low water line.  Allowable <<bm-total-horizontal-uncertainty,THU>> for the positioning of these objects are presented in <<sec-table-2-other-minimum-standards-for-safety-of-navigation-sur,Table 2>>.  Allowable <<bm-total-vertical-uncertainty,TVU>> is not applied to these measurements within this standard.
+
+[[sec-features-less-significant-to-navigation]]
+=== Features Less Significant to Navigation
+
+Features less significant to navigation are non-conspicuous features which provide context and additional information, but are not likely to aid navigation.  As stated in <<sec-fixed-aids-and-topographic-features-significant-to-navigatio,section 5.2>>, topographic <<bm-feature,features>> of the same type may be both conspicuous / significant to navigation and less conspicuous / less significant to navigation depending on the feature’s individual characteristics and surroundings.  Topographic features less significant to navigation may include but are not limited to non-conspicuous landmarks such as: chimneys, flare stacks, hill or mountain tops, masts, monuments, towers, refineries, religious buildings, silos, single buildings, tanks, tank farms, and windmills.
+
+Allowable <<bm-total-horizontal-uncertainty,THU>> and <<bm-total-vertical-uncertainty,TVU>> for the positioning of these objects are presented in <<sec-table-2-other-minimum-standards-for-safety-of-navigation-sur,Table 2>>.
+
+[[sec-overhead-clearances]]
+=== Overhead Clearances
+
+Overhead obstructions such as bridges and cables may pose a hazard to navigation.  Allowable <<bm-total-horizontal-uncertainty,THU>> and <<bm-total-vertical-uncertainty,TVU>> for the positioning of overhead clearances (including associated horizontal clearances) are presented in <<sec-table-2-other-minimum-standards-for-safety-of-navigation-sur,Table 2>>.
+
+[[sec-angular-measurements]]
+=== Angular Measurements
+
+Angular measurements include but are not limited to: limits of sectors and arcs of visibility of lights, alignments of leading/clearing lines (lights and marks).  Allowable <<bm-total-horizontal-uncertainty,THU>> for the measurement of these angles are presented in <<sec-table-2-other-minimum-standards-for-safety-of-navigation-sur,Table 2>>.  Allowable <<bm-total-vertical-uncertainty,TVU>> is not applicable to these measurements.

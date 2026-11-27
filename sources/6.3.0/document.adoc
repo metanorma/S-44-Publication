@@ -1,0 +1,35 @@
+= IHO Standards for Hydrographic Surveys
+:series: S
+:docnumber: 44
+:doctype: standard
+:edition: 6.3.0
+:language: en
+:published-date: 2026-03
+:copyright-year: 2026
+:status: in-force
+:committee: hssc
+:toclevels: 3
+:mn-document-class: iho
+:mn-output-extensions: xml,html,doc,pdf,rxl
+:local-cache-only:
+:data-uri-image:
+:imagesdir: images
+
+// Cover photograph extracted from the source document; the metanorma-iho flavor renders the publication cover from the bibliographic metadata above.
+
+include::sections/00-front-matter.adoc[]
+
+include::sections/01-classification-of-safety-of-navigation-surveys.adoc[]
+
+include::sections/02-horizontal-and-vertical-positioning.adoc[]
+
+include::sections/03-depth-bathymetric-coverage-features-and-nature-of-the-bottom.adoc[]
+
+include::sections/04-water-levels-and-flow.adoc[]
+
+include::sections/05-surveys-above-the-vertical-reference.adoc[]
+
+include::sections/06-metadata.adoc[]
+
+include::sections/07-tables-and-specification-matrix.adoc[]
+

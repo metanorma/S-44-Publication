@@ -1,0 +1,53 @@
+[[sec-horizontal-and-vertical-positioning]]
+== HORIZONTAL AND VERTICAL POSITIONING
+
+[[sec-introduction-2]]
+=== Introduction
+
+Positioning is a fundamental part for every survey operation.  The hydrographer must consider the geodetic reference system, horizontal and vertical reference frame, their connections to other systems in use (e.g. land survey reference systems), as well as the uncertainty inherent within associated measurements.
+
+In this standard, position and its uncertainty refer to the horizontal component of the sounding or feature, while the depth and its uncertainty refers to the vertical component of the same sounding or feature.
+
+[[sec-geodetic-reference-systems-and-frames]]
+=== Geodetic Reference Systems and Frames
+
+Positions should be referenced to a geodetic reference frame, which can be the realisation of either a global or a regional reference system. 
+
+Since positions are most often referenced in a compound coordinate reference system/frame such as geodetic, geopotential, and height reference system/frame, they can be separated into horizontal and vertical components.
+
+[[sec-horizontal-reference-frame]]
+=== Horizontal Reference Frame
+
+If horizontal positions are referenced to a local geodetic reference frame, the name and epoch of the geodetic reference frame should be specified and the frame should be tied to a realisation of a global reference system (e.g. ITRF2020, WGS84(G2296)) or a realisation of a regional reference system (e.g. ETRF89, NAD83(2011)).  Transformations between reference frames/epochs should be taken into account, especially for surveys with low <<bm-uncertainty,uncertainty>>.
+
+[[sec-vertical-reference-frame]]
+=== Vertical Reference Frame
+
+If the vertical component of the positions is referenced to a local reference frame, the name and epoch of the frame should be specified (e.g. EVRF2019, BSCD2000).  The vertical component of the positions (e.g. depths, drying heights) should be referenced to a vertical reference frame that is suitable for the data type and intended use.  This vertical reference frame may be based on water level observations (e.g. LAT, MWL, etc.), a physical model (i.e. geoid) or a reference ellipsoid.
+
+[[sec-chart-and-land-survey-vertical-reference-frame-connections]]
+=== Chart and Land Survey Vertical Reference Frame Connections
+
+In order for bathymetric data to be correctly and fully utilised, chart and land survey vertical reference frame connections or relationships must be clearly determined and described.  The IHO Resolution on Datums and Benchmarks, Resolution 3/1919, as amended, resolves practices which, where applicable, should be followed in the determination of these vertical reference frame connections.
+
+This essential resolution 3/1919, as amended, is available in the IHO Publication M-3, Resolutions of the International Hydrographic Organization, which is downloadable from the IHO homepage link:http://www.iho.int[www.iho.int].
+
+[[sec-uncertainty]]
+=== Uncertainty
+
+This standard addresses <<bm-total-propagated-uncertainty,total propagated uncertainty>> (<<bm-total-propagated-uncertainty,TPU>>) by the two components; <<bm-total-horizontal-uncertainty,total horizontal uncertainty>> (<<bm-total-horizontal-uncertainty,THU>>) and <<bm-total-vertical-uncertainty,total vertical uncertainty>> (<<bm-total-vertical-uncertainty,TVU>>).  The <<bm-total-vertical-uncertainty,THU>> and <<bm-total-horizontal-uncertainty,TVU>> values must be understood as an interval of ± the stated value.
+
+A statistical method, combining all sources of <<bm-uncertainty,uncertainty>> to determine both the horizontal and the vertical positioning <<bm-uncertainty,uncertainty>> should be adopted to obtain <<bm-total-horizontal-uncertainty,THU>> and <<bm-total-vertical-uncertainty,TVU>> respectively.  The uncertainties at the 95% <<bm-confident-level,confidence level>> must be recorded with the survey data.
+
+The ability of the survey system should be demonstrated by <<bm-a-priori-uncertainty,_a priori_ uncertainty>> calculations (<<bm-total-horizontal-uncertainty,THU>> and <<bm-total-vertical-uncertainty,TVU>>).  These calculations are predictive and must be calculated for the survey system as a whole, including all instrument, measurement, and environmental <<bm-uncertainty,uncertainty>> sources.  This estimation should be updated during the survey to reflect changes from environmental conditions such as wind, waves, etc. in order to make appropriate changes to survey parameters.
+
+Final <<bm-uncertainty,uncertainty>> values for the survey should consist of _a posteriori_ calculations. These calculations may be derived from explicitly empirical values (e.g. based on standard deviation of vertical depths alone), or from THU and TVU calculations supported by measured parameters.  The <<bm-metadata,metadata>> should include the <<bm-uncertainty,uncertainty>>achieved for both horizontal and vertical <<bm-uncertainty,uncertainty>> components (THU and TVU).
+
+Within this standard, for ease of use and assuming a normal distribution of error, allowable horizontal <<bm-uncertainty,uncertainty>> is assumed to be equal in both dimensions.  The position <<bm-uncertainty,uncertainty>> is expressed as a single number describing a radial <<bm-uncertainty,uncertainty>>.
+
+[[sec-confidence-level]]
+=== Confidence Level
+
+In this standard the term <<bm-confident-level,confidence level>> is not the strict statistical definition, but is equivalent to the terms "level of confidence" or "coverage probability" as discussed in the _Guide to the Expression of Uncertainty in Measurement_, JCGM 100:2008, section 6.2.2.
+
+It must be noted that <<bm-confident-level,confidence levels>> (e.g. 95%) depend on the assumed statistical distribution of the data and are calculated differently for one-dimensional (1D) and two-dimensional (2D) quantities.  In the context of this standard, which assumes normal distribution of <<bm-error,error>>, the 95% <<bm-confident-level,confidence level>> for 1D quantities (e.g. depth) is defined as 1.96 x standard deviation. The 95% <<bm-confident-level,confidence level>> for 2D quantities (e.g. position) is defined as 2.45 x standard deviation where the largest standard deviation of the x or y axis is used.
